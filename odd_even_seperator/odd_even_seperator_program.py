@@ -24,7 +24,6 @@ class MainApp():
 # program to read all the numbers in the text file and seperate them to an odd or even text files
         self.mainFile = open("odd_even_seperator/numbers.txt", "r")
         for line in self.mainFile:
-            print(line)
             if int(line) % 2 == 0:
                 self.even_integers.append(line.replace("\n", ""))
             elif int(line) % 2 != 0:
@@ -32,8 +31,15 @@ class MainApp():
             else:
                 continue
 
-        print(self.even_integers)
-        print(self.odd_integers)
+# program to put all even and odd numbers into their perspective text file
+        for k in self.even_integers:
+            self.evenFile = open("odd_even_seperator/even.txt", "a")
+            self.evenFile.write(f"{k}\n")
+            self.evenFile.close()
 
+        for l in self.odd_integers:
+            self.oddFile = open("odd_even_seperator/odd.txt", "a")
+            self.oddFile.write(f"{l}\n")
+            self.oddFile.close()
 if __name__ == "__main__":
     MainApp()
