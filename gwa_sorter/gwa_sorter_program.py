@@ -18,7 +18,14 @@ class MainApp(ctk.CTk):
         self.gwa_dict = {}
 
 # button to open a window to ask for user input
+        self.button_sizes_main_menu_x = 480
+        self.button_sizes_main_menu_y = 80
 
+        self.gwa_input = ctk.CTkButton(self, text = "Input GWA", width = self.button_sizes_main_menu_x, height = self.button_sizes_main_menu_y, font = ("Arial", 40))
+        self.gwa_input.grid(row = 0, column = 0)
+        
+        self.highest_gwa = ctk.CTkButton(self, text = "Highest GWA", width = self.button_sizes_main_menu_x, height = self.button_sizes_main_menu_y, font = ("Arial", 40))
+        self.highest_gwa.grid(row = 1, column = 0)
 ## ask for user input to put 20 gwa with their names
 
 # button to show the name(s) with the highest gwa
