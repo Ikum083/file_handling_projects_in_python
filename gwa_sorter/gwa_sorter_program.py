@@ -29,7 +29,7 @@ class MainApp(ctk.CTk):
         self.gwa_input = ctk.CTkButton(self, text = "Input GWA", width = self.button_sizes_main_menu_x, height = self.button_sizes_main_menu_y, font = ("Arial", 40), command = self.user_input_gwa)
         self.gwa_input.grid(row = 0, column = 0)
         
-        self.highest_gwa = ctk.CTkButton(self, text = "Highest GWA", width = self.button_sizes_main_menu_x, height = self.button_sizes_main_menu_y, font = ("Arial", 40))
+        self.highest_gwa = ctk.CTkButton(self, text = "Highest GWA", width = self.button_sizes_main_menu_x, height = self.button_sizes_main_menu_y, font = ("Arial", 40), command = lambda : self.highest_gwa_finder(gwa_dict))
         self.highest_gwa.grid(row = 1, column = 0)
 
 ## ask for user input to put 20 gwa with their names
@@ -65,13 +65,23 @@ class MainApp(ctk.CTk):
 
 # add name and gwa into json file
     def add_name_and_gwa(self, gwa_dict):
-        gwa_dict.update({enter_name.get() : enter_gwa.get()})
+        gwa_dict.update({enter_name.get() : int(enter_gwa.get())})
         with open("gwa_sorter/gwa.json", "w") as file:
             json.dump(gwa_dict, file, indent = 4)
         enter_gwa.delete(0, 'end')
         enter_name.delete(0, 'end')
-        
 
+# method to find the highest gwa and putting it into the text file
+    def highest_gwa_finder(self, gwa_dict):
+        highest_gwa = max(gwa_dict.values())
+        highest_gwa_names = [key for key, value in gwa_dict.items() if value == highest_gwa]
+        print(gwa_dict)
+        print(highest_gwa)
+        print(highest_gwa_names)
+        with open("gwa_sorter/highest.txt", "w") as text_file:
+            for name in highest_gwa_names:
+                text_file.write(f"{name}\n")
+        
 # button to show the name(s) with the highest gwa
 if __name__ == "__main__":
     main_app = MainApp()
