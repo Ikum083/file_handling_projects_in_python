@@ -4,7 +4,9 @@ class MainApp():
     def __init__(self):
         # make sure the text files are clear
         open("odd_even_seperator/numbers.txt", "w").close()
-
+        open("odd_even_seperator/even.txt", "w").close()
+        open("odd_even_seperator/odd.txt", "w").close()
+        
         # list to contain every integer
         self.integers = []
         self.even_integers = []
@@ -41,5 +43,6 @@ class MainApp():
             self.oddFile = open("odd_even_seperator/odd.txt", "a")
             self.oddFile.write(f"{l}\n")
             self.oddFile.close()
+
 if __name__ == "__main__":
     MainApp()
