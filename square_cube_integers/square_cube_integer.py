@@ -35,7 +35,7 @@ class SquareCube():
             for squares in self.squared_numbers:
                 square_file.write(f"{str(squares)}\n")
         with open("square_cube_integers/triple.txt", "a") as cubed_file:
-            for cubed in self.squared_numbers:
+            for cubed in self.cubed_numbers:
                 cubed_file.write(f"{str(cubed)}\n")
         square_file.close()
         cubed_file.close()
