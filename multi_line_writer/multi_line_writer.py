@@ -1,10 +1,17 @@
 # multi line writer in python
-
 # boolean to control the while loop
+asking_user = True
 
 # while loop that will iterate until the user says to stop
+class LineWriter():
+    def __init__(self):
+        while asking_user:
+            ## ask user for their input 
+            self.user_input = str(input("Enter line: "))
+            ## put the input into a text file named "mylife.txt"
+            ## ask user if to continue or stop
+            self.stop_or_continue_loop = str(input("Are there more lines y/n? "))
 
-## ask user for their input 
 
-## put the input into a text file named "mylife.txt"
+
 
