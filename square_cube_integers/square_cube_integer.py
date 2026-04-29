@@ -31,6 +31,14 @@ class SquareCube():
         print(self.squared_numbers)
         print(self.cubed_numbers)
 ### input the perspective files into their rightful text file
-
+        with open("square_cube_integers/double.txt", "a") as square_file:
+            for squares in self.squared_numbers:
+                square_file.write(f"{str(squares)}\n")
+        with open("square_cube_integers/triple.txt", "a") as cubed_file:
+            for cubed in self.squared_numbers:
+                cubed_file.write(f"{str(cubed)}\n")
+        square_file.close()
+        cubed_file.close()
+        
 if __name__ == "__main__":
     SquareCube()
